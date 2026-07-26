@@ -1,5 +1,5 @@
 {
-  "name": "zuavi-whatsapp-bot",
+  "name": "zuavi-bot",
   "version": "1.0.0",
   "description": "Asistente virtual de Zuavielle",
   "main": "server_zuavi.js",
@@ -7,9 +7,9 @@
     "start": "node server_zuavi.js"
   },
   "dependencies": {
-    "@google/genai": "latest",
-    "body-parser": "^1.20.2",
+    "@google/genai": "^0.1.1",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
-    "twilio": "^5.0.0"
+    "nodemailer": "^6.9.13"
   }
 }
