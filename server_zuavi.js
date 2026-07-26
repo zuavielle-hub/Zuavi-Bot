@@ -11,7 +11,6 @@ app.use(cors()); // Permite que tu web de WordPress se conecte sin problemas
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Configuración del servicio de correo para avisarte si el cliente pide un humano
-// (Usaremos variables de entorno en Render para tu correo y contraseña de aplicación)
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -52,9 +51,9 @@ app.post('/chat', async (req, res) => {
                            lowerMsg.includes('ayuda real') || 
                            lowerMsg.includes('soporte');
 
-        // Consultar a Gemini (usando el modelo gemini-2.5-flash)
+        // Consultar a Gemini (actualizado al modelo gemini-2.0-flash)
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-2.0-flash',
             contents: userMessage,
             config: {
                 systemInstruction: ZUAVI_SYSTEM_INSTRUCTION,
