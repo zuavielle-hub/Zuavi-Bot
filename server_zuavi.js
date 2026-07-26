@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors()); // Permite que tu web de WordPress se conecte sin problemas
 
 // Inicializar la IA de Google Gemini (toma la API Key de las variables de entorno de Render)
-const ai = new GoogleGenAI();
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Configuración del servicio de correo para avisarte si el cliente pide un humano
 // (Usaremos variables de entorno en Render para tu correo y contraseña de aplicación)
