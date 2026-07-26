@@ -14,8 +14,8 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.EMAIL_USER,       // Tu correo de Gmail
-        pass: process.env.EMAIL_PASS        // Tu contraseña de aplicación de Google
+        user: process.env.EMAIL_USER,        // Tu correo de Gmail
+        pass: process.env.EMAIL_PASS         // Tu contraseña de aplicación de Google
     }
 });
 
@@ -51,9 +51,9 @@ app.post('/chat', async (req, res) => {
                            lowerMsg.includes('ayuda real') || 
                            lowerMsg.includes('soporte');
 
-        // Consultar a Gemini (actualizado al modelo gemini-2.0-flash)
+        // Consultar a Gemini (actualizado al modelo estable gemini-1.5-flash)
         const response = await ai.models.generateContent({
-            model: 'gemini-2.0-flash',
+            model: 'gemini-1.5-flash',
             contents: userMessage,
             config: {
                 systemInstruction: ZUAVI_SYSTEM_INSTRUCTION,
